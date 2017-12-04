@@ -1,6 +1,7 @@
 package cn.edu.zjut.service;
 
 import cn.edu.zjut.dao.ICustomerDAO;
+import cn.edu.zjut.po.Customer;
 
 public class UserService implements IUserService {
     private ICustomerDAO customerDAO = null;
@@ -15,8 +16,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void register() {
+    public void register(Customer customer) {
         System.out.println("execute--register()--method.");
-        customerDAO.save();
+        customerDAO.save(customer);
     }
 }
