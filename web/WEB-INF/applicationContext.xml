@@ -32,6 +32,7 @@
             </list>
         </property>
     </bean>
+
     <bean id="baseDAO" class="cn.edu.zjut.dao.BaseHibernateDAO">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
@@ -39,5 +40,8 @@
           parent="baseDAO"/>
     <bean id="userService" class="cn.edu.zjut.service.UserService">
         <property name="customerDAO" ref="userDAO"/>
+    </bean>
+    <bean id="userAction" class="cn.edu.zjut.action.UserAction" scope="prototype">
+        <property name="userService" ref="userService" />
     </bean>
 </beans>
